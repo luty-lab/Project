@@ -6,6 +6,7 @@
       <h2>浙江经贸教务系统</h2>
     </header>
     <!-- 搜索框 -->
+
     <div class="course-search">
       <div class="course-search-bar">
         <van-search
@@ -17,79 +18,79 @@
           @clear="onClear"
         >
         </van-search>
-        <van-button @click="onSearch" color="#2297ff" size="normal" round class="van-button"
-          >搜索</van-button
-        >
+        <van-button @click="onSearch" size="normal" round class="van-button">搜索</van-button>
       </div>
     </div>
+    <!-- 搜索框之下 -->
+    <div class="largerContent">
+      <!-- 班级讯息 -->
+      <section class="class-message-module">
+        <van-cell-group class="message-group" bordered>
+          <!-- 标题单元格 -->
+          <van-cell class="message-section-title" :title="sectionTitle" :bordered="false" />
 
-    <!-- 班级讯息 -->
-    <section class="class-message-module">
-      <van-cell-group class="message-group" bordered>
-        <!-- 标题单元格 -->
-        <van-cell class="message-section-title" :title="sectionTitle" :bordered="false" />
+          <!-- 讯息列表 -->
+          <van-cell
+            v-for="message in classMessageList"
+            :key="message.id"
+            :title="message.title"
+            :label="formatMessageTime(message.createTime)"
+            class="message-item"
+            @click="handleMessageClick(message)"
+            :is-link="true"
+          >
+            <!-- 未读标记 -->
+            <template #extra>
+              <van-badge v-if="!message.isRead" dot />
+            </template>
+          </van-cell>
 
-        <!-- 讯息列表 -->
-        <van-cell
-          v-for="message in classMessageList"
-          :key="message.id"
-          :title="message.title"
-          :label="formatMessageTime(message.createTime)"
-          class="message-item"
-          @click="handleMessageClick(message)"
-          :is-link="true"
-        >
-          <!-- 未读标记 -->
-          <template #extra>
-            <van-badge v-if="!message.isRead" dot />
-          </template>
-        </van-cell>
+          <!-- 空状态（无消息时显示） -->
+          <van-empty v-if="isMessageListEmpty" description="暂无班级讯息" class="empty-message" />
+        </van-cell-group>
+      </section>
 
-        <!-- 空状态（无消息时显示） -->
-        <van-empty v-if="isMessageListEmpty" description="暂无班级讯息" class="empty-message" />
-      </van-cell-group>
-    </section>
+      <!-- 快捷入口 -->
+      <section class="quick-function-panel">
+        <van-grid :border="false" column-num="4" class="function-grid">
+          <van-grid-item
+            v-for="item in functionList"
+            :key="item.id"
+            :icon="item.icon"
+            :text="item.text"
+            icon-color="#2297ff"
+            @click="handleItemClick(item)"
+            class="function-item"
+          />
+        </van-grid>
+      </section>
 
-    <!-- 快捷入口 -->
-    <section class="quick-function-panel">
-      <van-grid :border="false" column-num="4" class="function-grid">
-        <van-grid-item
-          v-for="item in functionList"
-          :key="item.id"
-          :icon="item.icon"
-          :text="item.text"
-          icon-color="#2297ff"
-          @click="handleItemClick(item)"
-          class="function-item"
-        />
-      </van-grid>
-    </section>
+      <!-- 今日课程 -->
+      <section class="today-course-panel">
+        <!-- 头部日期区域 -->
+        <header class="today-course-header">
+          <span class="today-date-text">{{ formattedCurrentDate }}</span>
+        </header>
 
-    <!-- 今日课程 -->
-    <section class="today-course-panel">
-      <!-- 头部日期区域 -->
-      <header class="today-course-header">
-        <span class="today-date-text">{{ formattedCurrentDate }}</span>
-      </header>
-
-      <!-- 课程列表内容区 -->
-      <div class="today-course-body">
-        <!-- 课程项循环 -->
-        <div v-for="course in todayCourseList" :key="course.courseId" class="course-item">
-          <div class="course-indicator" />
-          <div class="course-detail">
-            <p class="course-name">{{ course.courseName }}</p>
-            <p class="course-meta-info">
-              <span>地点：{{ course.classroom }}</span>
-              <span>{{ course.startTime }} - {{ course.endTime }}</span>
-            </p>
+        <!-- 课程列表内容区 -->
+        <div class="today-course-body">
+          <!-- 课程项循环 -->
+          <div v-for="course in todayCourseList" :key="course.courseId" class="course-item">
+            <div class="course-indicator" />
+            <div class="course-detail">
+              <p class="course-name">{{ course.courseName }}</p>
+              <p class="course-meta-info">
+                <span>地点：{{ course.classroom }}</span>
+                <span>{{ course.startTime }} - {{ course.endTime }}</span>
+              </p>
+            </div>
           </div>
-        </div>
 
-        <!-- 空状态 -->
-        <van-empty v-if="isTodayCourseEmpty" description="今日无课" />
-      </div>
-    </section>
+          <!-- 空状态 -->
+          <van-empty v-if="isTodayCourseEmpty" description="今日无课" />
+        </div>
+      </section>
+    </div>
   </div>
 </template>
 
@@ -168,14 +169,17 @@ const handleMessageClick = (message: ClassMessage) => {
 
 <style scoped lang="scss">
 .home-view {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
   width: 100%;
   height: 100%;
   min-height: calc(100vh - 96px);
-  background: #f1f1f1;
+  background: #2297ff;
+
   //头部
   .pageHeader {
     padding: 0rem 1.5rem;
-    background: #2297ff;
     h2 {
       color: #fff;
     }
@@ -184,7 +188,6 @@ const handleMessageClick = (message: ClassMessage) => {
   .course-search {
     width: 100%;
     padding: 1rem 1.7rem; //为了视觉对齐，略微增加边距
-    background: #2297ff;
     .course-search-bar {
       display: flex;
       justify-content: space-between;
@@ -203,127 +206,140 @@ const handleMessageClick = (message: ClassMessage) => {
       .van-button {
         font-size: 1rem;
         font-weight: bold;
+        background: rgba(34, 151, 255, 0.7); /* 半透明白色背景，关键！ */
+        backdrop-filter: blur(12px); /* 模糊背后内容 */
+        -webkit-backdrop-filter: blur(12px); /* Safari 兼容 */
+        color: #fff;
+        // backdrop-filter: blur(10px);
+        // -webkit-backdrop-filter: blur(10px); /* Safari 兼容 */
         --van-button-default-height: 2.4rem;
         --van-button-normal-padding: 0 1.5rem;
       }
     }
   }
+  .largerContent {
+    border-radius: 1rem;
+    background: #f5f5f5;
+    flex: 1;
 
-  //消息递送
+    //消息递送
+    .class-message-module {
+      padding: 1.5rem 1.5rem;
+      overflow: hidden;
+      border-radius: 1rem;
+      // 消息组容器样式
+      .message-group {
+        background-color: #fff;
+        border: none; // 移除vant默认边框，由外层section控制样式
+        border-radius: 1rem; // 外层圆角，增强卡片感
+        height: 18rem;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06); // 轻微阴影，提升层次感
+        // 消除单元格默认内边距差异
+        --van-cell-vertical-padding: 12px;
 
-  .class-message-module {
-    padding: 1.5rem 1.5rem;
-    overflow: hidden;
-    // 消息组容器样式
-    .message-group {
-      background-color: #fff;
-      border: none; // 移除vant默认边框，由外层section控制样式
-      border-radius: 1rem; // 外层圆角，增强卡片感
-      height: 18rem;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06); // 轻微阴影，提升层次感
-      // 消除单元格默认内边距差异
-      --van-cell-vertical-padding: 12px;
+        // 标题样式
+        .message-section-title {
+          font-weight: 500;
+          font-size: 1rem;
+          font-weight: bold;
+          background-color: #f5f7fa;
+          padding-left: 16px;
+        }
 
-      // 标题样式
-      .message-section-title {
-        font-weight: 500;
+        // 消息项样式
+        .message-item {
+          padding-left: 16px;
+          padding-right: 12px;
+          --van-cell-font-size: 0.9rem;
+          ::v-deep {
+            .van-cell__title {
+              font-weight: 500;
+              color: #000000;
+            }
+          }
+        }
+
+        // 空状态样式
+        .empty-message {
+          padding: 30px 0;
+          --van-empty-description-color: #999;
+        }
+      }
+    }
+
+    //快速入口
+    .quick-function-panel {
+      // border: 1px solid black;
+      padding: 0 1.5rem;
+
+      .function-grid {
+        /* 消除默认内边距影响，统一由外层控制 */
+        display: flex;
+        border-radius: 12px;
+        padding: 0.5rem 0;
+        margin-top: 12px;
+        background-color: #ffffff;
+        box-shadow: 0 1px 8px rgba(0, 0, 0, 0.05);
+        .function-item {
+          // 主题色变量（便于全局主题切换）
+          --van-grid-item-content-background: transparent;
+          --van-grid-item-icon-size: 3rem;
+          --van-grid-item-text-font-size: 1rem;
+          --van-grid-item-content-padding: 0rem;
+        }
+      }
+    }
+    //今日课程
+    .today-course-panel {
+      padding: 1rem 1.5rem;
+      background: none;
+      border-radius: 12px;
+      overflow: hidden;
+      .today-course-header {
+        padding: 12px 16px;
         font-size: 1rem;
         font-weight: bold;
-        background-color: #f5f7fa;
-        padding-left: 16px;
+        border-bottom: 1px solid #f0f0f0;
       }
+      .today-course-body {
+        border-radius: 12px;
+        background: #ffffff;
+        padding: 0rem 1rem;
+        box-shadow: 0 1px 8px rgba(0, 0, 0, 0.05);
+        .course-item {
+          display: flex;
+          align-items: start;
+          height: 6rem;
+          padding: 1rem 0;
+          border-bottom: 1px solid #959595;
 
-      // 消息项样式
-      .message-item {
-        padding-left: 16px;
-        padding-right: 12px;
-        --van-cell-font-size: 0.9rem;
-        ::v-deep {
-          .van-cell__title {
-            font-weight: 500;
-            color: #000000;
+          &:last-child {
+            border-bottom: none;
           }
-        }
-      }
+          .course-indicator {
+            width: 1rem;
+            height: 1rem;
+            border-radius: 1rem;
+            background: rgba(34, 151, 255, 0.7); /* 半透明白色背景，关键！ */
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            backdrop-filter: blur(0.2rem); /* 模2rem12px); /* Safari 兼容 */
 
-      // 空状态样式
-      .empty-message {
-        padding: 30px 0;
-        --van-empty-description-color: #999;
-      }
-    }
-  }
-
-  //快速入口
-
-  .quick-function-panel {
-    // border: 1px solid black;
-    padding: 0 1.5rem;
-    // margin-top: 12px;
-    // background-color: #ffffff;
-    border-radius: 12px;
-    overflow: hidden;
-    .function-grid {
-      /* 消除默认内边距影响，统一由外层控制 */
-      display: flex;
-
-      padding: 0;
-      .function-item {
-        // 主题色变量（便于全局主题切换）
-        --van-grid-item-content-background: transparent;
-        --van-grid-item-icon-size: 3rem;
-        --van-grid-item-text-font-size: 1rem;
-        --van-grid-item-content-padding: 0rem;
-      }
-    }
-  }
-  //今日课程
-  .today-course-panel {
-    padding: 1rem 1.5rem;
-    background: none;
-    border-radius: 12px;
-    overflow: hidden;
-    .today-course-header {
-      padding: 12px 16px;
-      font-size: 1rem;
-      font-weight: bold;
-      border-bottom: 1px solid #f0f0f0;
-    }
-    .today-course-body {
-      border-radius: 12px;
-      background: #ffffff;
-      padding: 0rem 1rem;
-      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
-      .course-item {
-        display: flex;
-        align-items: start;
-        height: 6rem;
-        padding: 1rem 0;
-        border-bottom: 1px solid #959595;
-
-        &:last-child {
-          border-bottom: none;
-        }
-        .course-indicator {
-          width: 1rem;
-          height: 1rem;
-          border-radius: 50%;
-          background: #1989fa;
-          margin-right: 0.5rem;
-          flex-shrink: 0;
-        }
-        .course-detail {
-          flex: 1;
-          .course-name {
-            font-size: 15px;
-            font-weight: 500;
-            margin-bottom: 4px;
+            margin-right: 0.5rem;
+            flex-shrink: 0;
           }
-          .course-meta-info {
-            font-size: 13px;
-            color: #666;
-            display: flex;
-            justify-content: space-between;
+          .course-detail {
+            flex: 1;
+            .course-name {
+              font-size: 15px;
+              font-weight: 500;
+              margin-bottom: 4px;
+            }
+            .course-meta-info {
+              font-size: 13px;
+              color: #666;
+              display: flex;
+              justify-content: space-between;
+            }
           }
         }
       }

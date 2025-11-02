@@ -27,5 +27,6 @@ changeTitle('首页')
 <style scoped>
 .app {
   width: 100%;
+  color: #000;
 }
 </style>
