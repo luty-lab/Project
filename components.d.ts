@@ -25,7 +25,5 @@ declare module 'vue' {
     VanGridItem: typeof import('vant/es')['GridItem']
     VanNavBar: typeof import('vant/es')['NavBar']
     VanSearch: typeof import('vant/es')['Search']
-    VanTabbar: typeof import('vant/es')['Tabbar']
-    VanTabbarItem: typeof import('vant/es')['TabbarItem']
   }
 }

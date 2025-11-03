@@ -2,7 +2,7 @@
   <div class="app">
     <NavBar :title="activeTitle" />
     <RouterView />
-    <TabBar ref="tabBar" />
+    <!-- <TabBar ref="tabBar" /> -->
     <TabBarT ref="tabBarT" />
   </div>
 </template>
@@ -17,6 +17,7 @@ import TabBarT from './components/TabBarT.vue'
 
 const activeTitle = ref<string>('')
 //切换标题的逻辑
+
 emitter.on('changeTitle', (title: string) => {
   activeTitle.value = title
 })

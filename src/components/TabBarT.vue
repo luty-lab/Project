@@ -11,9 +11,9 @@
     </van-tabbar> -->
     <div class="tabBar">
       <div class="tabs">
-        <div class="scroll" ref="scroll"></div>
+        <div class="scroll"></div>
         <div class="tab" v-for="(item, index) in TabBarList" :key="index" @click="active = index">
-          <RouterLink :to="item.path" @click="handleTabChange">
+          <RouterLink :to="item.path">
             <Icon :name="item.icon" color="#fff" size="1.5rem" />
             <span>{{ item.name }}</span>
           </RouterLink>
@@ -34,7 +34,6 @@ const { TabBarList } = useTabList()
 
 //当前页号
 const active = ref(2) // 默认选中“首页”
-
 //用于传输标题
 
 //处理手动切换
@@ -43,13 +42,13 @@ const handleTabChange = () => {
 }
 //scroll位置跟随active变化
 onMounted(() => {
-  const scroll = ref<HTMLElement | null>(null)
-  watch(active, () => {
-    const tabWidth = scroll.value.parentElement?.offsetWidth || 0
-    const step = (tabWidth / TabBarList.length) * (active.value - 2)
-    if (scroll.value) {
-      scroll.value.style.transform = `translateX(${step}px)`
-    }
+  const scroll = document.querySelector('.scroll') as HTMLElement
+  watch(active, (newVal) => {
+    const tabWidth = document.querySelector('.tabs')?.clientWidth as number
+    const step = (tabWidth / TabBarList.length) * (newVal - 2)
+    scroll.style.transform = `translateX(${step}px)`
+
+    handleTabChange()
   })
 })
 </script>
