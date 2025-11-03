@@ -1,7 +1,7 @@
 <!-- src/components/AppNavBar.vue -->
 <template>
   <div class="content">
-    <van-nav-bar class="van-nav-bar" :title="title" placeholder> </van-nav-bar>
+    <van-nav-bar class="van-nav-bar" :title="title"> </van-nav-bar>
   </div>
 </template>
 
@@ -12,10 +12,13 @@ defineProps<{
 </script>
 
 <style scoped lang="scss">
+@use '@/assets/color.scss' as m;
+$primary: #000;
 .content {
   width: 100%;
   .van-nav-bar {
-    --van-nav-bar-background: #2297ff;
+    background: m.$primary;
+
     --van-nav-bar-title-text-color: #fff;
   }
 }

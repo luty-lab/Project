@@ -25,11 +25,11 @@
     <div class="largerContent">
       <!-- 班级讯息 -->
       <section class="class-message-module">
-        <van-cell-group class="message-group" bordered>
-          <!-- 标题单元格 -->
-          <van-cell class="message-section-title" :title="sectionTitle" :bordered="false" />
-
+        <div class="message-group">
           <!-- 讯息列表 -->
+          <div class="message-section-title">{{ sectionTitle }}</div>
+
+          <!-- 标题单元格 -->
           <van-cell
             v-for="message in classMessageList"
             :key="message.id"
@@ -47,7 +47,7 @@
 
           <!-- 空状态（无消息时显示） -->
           <van-empty v-if="isMessageListEmpty" description="暂无班级讯息" class="empty-message" />
-        </van-cell-group>
+        </div>
       </section>
 
       <!-- 快捷入口 -->
@@ -168,6 +168,8 @@ const handleMessageClick = (message: ClassMessage) => {
 </script>
 
 <style scoped lang="scss">
+@use '@/assets/main.scss' as *;
+@use '@/assets/color.scss' as *;
 .home-view {
   display: flex;
   flex-direction: column;
@@ -175,7 +177,7 @@ const handleMessageClick = (message: ClassMessage) => {
   width: 100%;
   height: 100%;
   min-height: calc(100vh - 96px);
-  background: #2297ff;
+  background: $primary;
 
   //头部
   .pageHeader {
@@ -218,38 +220,44 @@ const handleMessageClick = (message: ClassMessage) => {
     }
   }
   .largerContent {
-    border-radius: 1rem;
-    background: #f5f5f5;
-    flex: 1;
+    border-radius: 1rem 1rem 0 0;
+    background: #f5f7fa;
+    min-height: 0;
 
     //消息递送
     .class-message-module {
       padding: 1.5rem 1.5rem;
       overflow: hidden;
       border-radius: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
       // 消息组容器样式
+
       .message-group {
         background-color: #fff;
         border: none; // 移除vant默认边框，由外层section控制样式
         border-radius: 1rem; // 外层圆角，增强卡片感
         height: 18rem;
+        padding: 0.8rem 0 0.8rem 1.2rem;
+
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06); // 轻微阴影，提升层次感
         // 消除单元格默认内边距差异
         --van-cell-vertical-padding: 12px;
 
         // 标题样式
         .message-section-title {
+          margin-bottom: 0.3rem;
           font-weight: 500;
           font-size: 1rem;
           font-weight: bold;
-          background-color: #f5f7fa;
-          padding-left: 16px;
         }
 
         // 消息项样式
         .message-item {
-          padding-left: 16px;
-          padding-right: 12px;
+          border-bottom: 1px solid #f0f0f0;
+          padding: 0.4rem 0.4rem;
+
           --van-cell-font-size: 0.9rem;
           ::v-deep {
             .van-cell__title {

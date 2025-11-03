@@ -31,7 +31,7 @@ const handleTabChange = () => {
 main {
   .TabBar {
     --van-tabbar-height: 60px;
-    --van-tabbar-background: #fff;
+    --van-tabbar-background: #eaeaea;
     // --van-tabbar-item-active-background: #000;
 
     --van-tabbar-item-active-color: #1989fa;

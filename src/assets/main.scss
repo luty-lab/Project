@@ -3,6 +3,8 @@
   // @include m.backgroundBlack;
   padding: 0;
   margin: 0;
+  border: none;
+  outline: none;
   box-sizing: border-box;
   font-family:
     宋体，黑体,
@@ -18,14 +20,25 @@
     'Helvetica Neue',
     sans-serif;
 }
-
-body {
+body,
+html,
+#app {
   width: 100%;
+  height: 100%;
 }
-
-@media (min-width: 600px) {
-  body {
-    width: 600px;
-    margin: 0;
-  }
+a {
+  text-decoration: none;
+  color: inherit;
+}
+ul,
+li {
+  list-style: none;
+}
+img {
+  display: block;
+  max-width: 100%;
+}
+button {
+  background: none;
+  cursor: pointer;
 }
