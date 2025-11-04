@@ -24,7 +24,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, watch, onMounted } from 'vue'
+import { ref, watch, computed, onMounted } from 'vue'
 import changeTitle from '@/utils/main/changeTitle'
 import { useTabList } from '@/stores/modules/TabBar/useTabList'
 import { Icon } from 'vant'
@@ -34,21 +34,15 @@ const { TabBarList } = useTabList()
 
 //当前页号
 const active = ref(2) // 默认选中“首页”
-//用于传输标题
 
-//处理手动切换
-const handleTabChange = () => {
-  changeTitle(TabBarList[active.value]?.name as string)
-}
 //scroll位置跟随active变化
 onMounted(() => {
   const scroll = document.querySelector('.scroll') as HTMLElement
-  watch(active, (newVal) => {
-    const tabWidth = document.querySelector('.tabs')?.clientWidth as number
-    const step = (tabWidth / TabBarList.length) * (newVal - 2)
-    scroll.style.transform = `translateX(${step}px)`
-
-    handleTabChange()
+  const tabWidth = document.querySelector('.tabs')?.clientWidth as number
+  const step = computed(() => (tabWidth / TabBarList.length) * (active.value - 2))
+  watch(active, () => {
+    scroll.style.transform = `translateX(${step.value}px)`
+    changeTitle(TabBarList[active.value]?.name as string)
   })
 })
 </script>
@@ -67,8 +61,8 @@ onMounted(() => {
   position: fixed;
   bottom: 0;
   width: 100%;
-  height: 70px;
-  background: #191717;
+  height: 80px;
+  background: $tabBar;
   padding: 5px 2px;
 
   .tabs {
@@ -76,20 +70,20 @@ onMounted(() => {
     position: relative;
     height: 100%;
     border-radius: 10rem;
-    background: #393636;
+    background: $tabs;
     .scroll {
       position: absolute;
-      width: 20%;
-      height: 100%;
-      margin-bottom: 5px;
+      width: 18%;
+      height: 90%;
       border-radius: 10rem;
-      background: #6d6565;
+      background: $scroll;
       z-index: 0;
-      transition: transform 0.3s ease;
+      transition: transform 0.15s ease-out;
     }
     .tab {
       flex: 1;
       text-align: center;
+      height: 100%;
       a {
         @include centerFlex;
         flex-direction: column;
