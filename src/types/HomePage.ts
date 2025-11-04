@@ -23,6 +23,7 @@ export interface FunctionItem {
 //课程卡片
 
 //课程单项
+
 export interface CourseItem {
   courseId: string // 课程唯一标识（推荐用字符串ID而非数字）
   courseName: string // 课程名称

@@ -32,7 +32,7 @@ changeTitle('首页')
   width: 100%;
   height: 100%;
   background: #000;
-  overflow: hidden;
+  /* overflow: hidden; */
   border-radius: 1rem;
 }
 </style>

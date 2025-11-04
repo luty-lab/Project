@@ -22,6 +22,7 @@
         <van-button @click="onSearch" size="normal" round class="van-button">搜索</van-button>
       </div>
     </div>
+
     <!-- 搜索框之下 -->
     <div class="mainContent">
       <!-- 班级讯息 -->
@@ -85,6 +86,82 @@
             <span class="function-item-text">{{ item.text }}</span>
           </div>
         </div>
+
+        <!-- <van-grid :border="false" column-num="4" class="function-grid">
+          <van-grid-item
+            v-for="item in functionList"
+            :key="item.id"
+            :icon="item.icon"
+            :text="item.text"
+            @click="handleItemClick(item)"
+            class="function-item"
+          />
+        </van-grid>
+        -->
+      </section>
+      <section class="quick-function-panel">
+        <div class="function-grid">
+          <div
+            class="function-item"
+            v-for="item in functionList"
+            :key="item.id"
+            @click="handleItemClick(item)"
+          >
+            <img :src="item.icon" />
+            <span class="function-item-text">{{ item.text }}</span>
+          </div>
+        </div>
+
+        <!-- <van-grid :border="false" column-num="4" class="function-grid">
+          <van-grid-item
+            v-for="item in functionList"
+            :key="item.id"
+            :icon="item.icon"
+            :text="item.text"
+            @click="handleItemClick(item)"
+            class="function-item"
+          />
+        </van-grid>
+        -->
+      </section>
+      <section class="quick-function-panel">
+        <div class="function-grid">
+          <div
+            class="function-item"
+            v-for="item in functionList"
+            :key="item.id"
+            @click="handleItemClick(item)"
+          >
+            <img :src="item.icon" />
+            <span class="function-item-text">{{ item.text }}</span>
+          </div>
+        </div>
+
+        <!-- <van-grid :border="false" column-num="4" class="function-grid">
+          <van-grid-item
+            v-for="item in functionList"
+            :key="item.id"
+            :icon="item.icon"
+            :text="item.text"
+            @click="handleItemClick(item)"
+            class="function-item"
+          />
+        </van-grid>
+        -->
+      </section>
+      <section class="quick-function-panel">
+        <div class="function-grid">
+          <div
+            class="function-item"
+            v-for="item in functionList"
+            :key="item.id"
+            @click="handleItemClick(item)"
+          >
+            <img :src="item.icon" />
+            <span class="function-item-text">{{ item.text }}</span>
+          </div>
+        </div>
+
         <!-- <van-grid :border="false" column-num="4" class="function-grid">
           <van-grid-item
             v-for="item in functionList"
@@ -123,6 +200,7 @@
           <van-empty v-if="isTodayCourseEmpty" description="今日无课" />
         </div>
       </section>
+      <TabHolder />
     </div>
   </div>
 </template>
@@ -149,6 +227,7 @@ import { useFunctionList } from '@/stores/modules/Home/useFunctionList'
 const { functionList } = storeToRefs(useFunctionList())
 
 import { useTodayCourseList } from '@/stores/modules/Home/useCourseList'
+import TabHolder from '@/components/TabHolder.vue'
 const { todayCourseList } = storeToRefs(useTodayCourseList())
 //搜索框----------------------------------------------------
 const keyword = ref<string>('') //搜索关键字
@@ -207,10 +286,12 @@ const handleMessageClick = (message: ClassMessage) => {
   display: flex;
   flex-direction: column;
   justify-content: start;
+  overflow-y: auto;
   width: 100%;
   height: 100%;
   min-height: calc(100vh - 96px);
   background: $primary;
+  border: 5px solid red;
 
   //头部
   .pageHeader {
@@ -239,6 +320,7 @@ const handleMessageClick = (message: ClassMessage) => {
         --van-search-content-background: none;
         --van-search-left-icon-color: #000;
       }
+
       .van-button {
         font-size: 1rem;
         font-weight: bold;
@@ -256,7 +338,7 @@ const handleMessageClick = (message: ClassMessage) => {
   .mainContent {
     border-radius: 1rem 1rem 0 0;
     padding: 1.5rem 0;
-    height: 100%;
+    flex: 1;
     background: $mainContent;
     min-height: 0;
 
@@ -363,17 +445,34 @@ const handleMessageClick = (message: ClassMessage) => {
         background-color: $card;
         box-shadow: 0 1px 8px rgba(0, 0, 0, 0.05);
         gap: 0.5rem;
+
+        /* 动画类：触发时添加，动画时长0.3秒（可调整） */
+
         .function-item {
           flex: 1;
           padding: 0.5rem 0.5rem;
           border-radius: 1rem;
           background: #242323; /* 半透明白色背景，关键！ */
-
+          transform: scale(1);
           display: flex;
           flex-direction: column;
           align-items: center;
           justify-content: center;
           color: $color-p1;
+          @keyframes bounce {
+            0% {
+              transform: scale(1);
+            }
+            50% {
+              transform: scale(0.7);
+            }
+            100% {
+              transform: scale(1);
+            }
+          }
+          &:active {
+            animation: bounce 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+          }
           img {
             height: 2rem;
             margin-bottom: 0.5rem;

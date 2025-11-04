@@ -1,14 +1,6 @@
 <!-- src/components/AppTabBar.vue -->
 <template>
   <main>
-    <!-- <van-tabbar class="TabBar" @change="handleTabChange" v-model="active" route>
-      <van-tabbar-item v-for="(item, index) in TabBarList" :key="index" :to="item.path">
-        {{ item.name }}
-        <template #icon>
-          <Icon :name="item.icon" color="#fff" />
-        </template>
-      </van-tabbar-item>
-    </van-tabbar> -->
     <div class="tabBar">
       <div class="tabs">
         <div class="scroll"></div>
@@ -61,7 +53,7 @@ onMounted(() => {
   position: fixed;
   bottom: 0;
   width: 100%;
-  height: 80px;
+  height: $h-tabBar;
   background: $tabBar;
   padding: 5px 2px;
 
