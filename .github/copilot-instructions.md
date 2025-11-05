@@ -1,58 +1,54 @@
 ## Copilot / AI agent instructions — Project
 
-Purpose: give concise, runnable guidance to AI coding agents so they can be productive immediately in this Vue 3 + Vite project.
+Purpose: concise, runnable guidance so an AI coding agent can be productive in this Vue 3 + Vite codebase.
 
-- Quick commands (use project root):
-  - Install: `npm install`
-  - Dev: `npm run dev` (vite)
-  - Build: `npm run build` (runs `vue-tsc` type-check then `vite build`)
-  - Preview: `npm run preview`
-  - Type-check only: `npm run type-check` (uses `vue-tsc`)
-  - Lint/format: `npm run lint`, `npm run format`
+Quick commands (run from repo root)
 
-Big picture
-- Framework: Vue 3 + TypeScript, built with Vite. See `vite.config.ts` for aliases and auto-import plugins.
-- State: Pinia used for global state. `src/stores/index.ts` exports the Pinia instance; individual stores live under `src/stores/modules/`.
-- Routing: `src/router/index.ts` defines routes (single-file Vue components from `src/views/`). Add new pages by adding a view and registering a route there.
-- API: simple axios wrappers live in `src/api/` (example: `src/api/apiHome.js`). Some API code may be plain JS while app code is TS — preserve JS when present unless migrating intentionally.
-- Styling: SCSS globals under `src/assets/` and `src/mixins/`; global import in `src/main.ts`.
+- Install deps: `npm install`
+- Dev server: `npm run dev`
+- Build (includes type-check): `npm run build` # runs `vue-tsc` then `vite build`
+- Preview a production build: `npm run preview`
+- Type-check only: `npm run type-check` (uses `vue-tsc`)
+- Lint & format: `npm run lint` and `npm run format`
 
-Project-specific conventions & patterns
-- Path alias: `@` -> `src` is configured in `vite.config.ts`. Use `@/components`, `@/views`, etc.
-- Auto-imports: `unplugin-auto-import` + `unplugin-vue-components` configured with Vant resolver — Vant components may be auto-imported. Don't manually add Vant imports unless necessary.
-- Entry: `src/main.ts` mounts the app, registers Pinia and router. Small boot logic (global styles, plugins) goes here.
-- Event bus pattern: `utils/emitter.ts` is used (see `App.vue` usage of `emitter.on('changeTitle', ...)`). Follow that pattern for global, light-weight events.
-- Title change helper: `utils/main/changeTitle.ts` is used from `App.vue` — prefer reusing it for consistent UI behavior.
+Big picture (what matters)
 
-How to make common changes (examples)
-- Add a new page:
-  1. Create `src/views/MyPage.vue` (single-file component).
-  2. Add route in `src/router/index.ts`: { path: '/my-page', name: 'MyPage', component: MyPage }.
+- Framework: Vue 3 + TypeScript, built with Vite. Type-checking is enforced during `npm run build`.
+- State: Pinia for global state. Stores live under `src/stores/modules/` (see `useCourseList.ts`, `useTabList.ts`).
+- Routing & views: Routes are defined in `src/router/index.ts`; views live in `src/views/` (single-file components).
+- APIs: lightweight axios wrappers under `src/api/` (e.g. `src/api/apiHome.js`). Some API files are plain JS — keep them JS unless you update tsconfig and tests.
+- Styling: SCSS globals and mixins in `src/assets/` and `src/mixins/`. Global style imported in `src/main.ts`.
 
-- Add a new Pinia store:
-  1. Create a module file under `src/stores/modules/` and export a store created with `defineStore`.
-  2. No global import wiring needed — `src/stores/index.ts` already sets up Pinia used in `src/main.ts`.
+Project-specific patterns & integration points
 
-- Call an API:
-  - Follow `src/api/apiHome.js` pattern: export named async functions that call `axios` and throw errors upward. Keep error logging minimal and rethrow for callers to handle.
+- Path alias: `@` → `src` (configured in `vite.config.ts`). Use `@/components`, `@/views`, etc.
+- Auto-imports: `unplugin-auto-import` and `unplugin-vue-components` are configured with a Vant resolver; many Vant components are auto-imported — you usually won't see explicit imports for Vant.
+- Event bus: `utils/emitter.ts` (mitt) is used for lightweight cross-component events; example: `emitter.on('changeTitle', ...)` in `App.vue`.
+- Title helper: `utils/main/changeTitle.ts` centralizes page title logic — prefer reusing it to keep UX consistent.
+- UI layout: global NavBar/TabBar components live in `src/components` and are wired from `App.vue`.
 
-Build and developer workflow notes
-- Type-checking is enforced as part of `npm run build` using `vue-tsc` (so fixes may be required before builds succeed).
-- ESLint and Prettier are configured; run `npm run lint` or `npm run format` as needed.
-- Vite dev server runs with `npm run dev`; Vue devtools plugin is enabled in `vite.config.ts` — use browser Vue devtools for component/state inspection.
+Concrete examples
 
-Files to reference when editing or extending behavior
-- `src/main.ts` — app bootstrap
-- `vite.config.ts` — aliases, auto-imports, plugins
-- `src/router/index.ts` — routes
-- `src/stores/index.ts` and `src/stores/modules/` — state
-- `src/api/` — API wrappers
-- `src/App.vue` — global layout (NavBar, TabBarT, title handling)
+- Add a new page: create `src/views/MyPage.vue` and register in `src/router/index.ts`:
+  - { path: '/my-page', name: 'MyPage', component: MyPage }
+- Add a Pinia store: place a module under `src/stores/modules/`, export via `defineStore`, and consume via `useXStore()` in components.
+- Call an API: follow `src/api/apiHome.js` — export async functions that use axios and rethrow errors. Keep logging minimal and let callers handle UI errors.
 
-When not to change
-- Avoid changing Vite alias `@` and auto-import plugin config without updating imports and build config.
-- Be cautious converting small JS API files to TypeScript unless you update lint/tsconfig and test the type-check step.
+Developer workflow notes & gotchas
 
-If something is unclear or you need deeper context (e.g., CI, deployment, backend contract), ask for the specific file or the owner to provide missing details.
+- Builds enforce types: fixes may be required before `npm run build` succeeds (run `npm run type-check` locally first).
+- Scripts: build uses `npm-run-all2` to run type-check then build-only; be careful changing these scripts.
+- Don't mass-convert JS API helpers to TS without updating tsconfig and running `vue-tsc`—build will fail if types are inconsistent.
+
+Files to read first when making changes
+
+- `src/main.ts` — bootstrap, Pinia, router, global styles
+- `vite.config.ts` — path aliases and auto-import/plugin config
+- `src/router/index.ts` — routes registration
+- `src/stores/modules/` — example stores and patterns
+- `src/api/` — API wrapper examples
+- `src/App.vue` — top-level layout and emitter/title usage
+
+If more context is needed (CI, backend contracts, deployment), request the specific config/CI file or the backend API spec. When updating behavior across many files (routes/stores/api), include a small test or manual validation steps (open dev server and exercise the route).
 
 — End

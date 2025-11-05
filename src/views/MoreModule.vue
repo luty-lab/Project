@@ -27,6 +27,7 @@ import TabHolder from '@/components/TabHolder.vue'
 // import { useRouter } from 'vue-router'
 // const router = useRouter()
 </script>
+
 <style scoped lang="scss">
 @use '@/assets/color.scss' as *;
 .MoreModule {

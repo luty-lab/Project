@@ -1,0 +1,609 @@
+{
+  "data": [
+    {
+      "class_name": "计算机一班",
+      "week": 1,
+      "schedule": [
+        {
+          "day": "周一",
+          "courses": [
+            {
+              "name": "数据结构",
+              "teacher": "张老师",
+              "time": "08:00-09:40",
+              "location": "一教101"
+            },
+            {
+              "name": "英语",
+              "teacher": "李老师",
+              "time": "10:00-11:40",
+              "location": "二教203"
+            },
+            {
+              "name": "高等数学",
+              "teacher": "王老师",
+              "time": "13:30-15:10",
+              "location": "三教305"
+            }
+          ]
+        },
+        {
+          "day": "周二",
+          "courses": [
+            {
+              "name": "计算机网络",
+              "teacher": "刘老师",
+              "time": "08:00-09:40",
+              "location": "一教108"
+            },
+            {
+              "name": "Python编程",
+              "teacher": "赵老师",
+              "time": "10:00-11:40",
+              "location": "实训楼202"
+            },
+            {
+              "name": "操作系统",
+              "teacher": "周老师",
+              "time": "13:30-15:10",
+              "location": "三教310"
+            }
+          ]
+        },
+        {
+          "day": "周三",
+          "courses": [
+            {
+              "name": "线性代数",
+              "teacher": "吴老师",
+              "time": "08:00-09:40",
+              "location": "二教208"
+            },
+            {
+              "name": "数据库原理",
+              "teacher": "郑老师",
+              "time": "10:00-11:40",
+              "location": "实训楼301"
+            },
+            {
+              "name": "马克思主义原理",
+              "teacher": "冯老师",
+              "time": "13:30-15:10",
+              "location": "四教402"
+            }
+          ]
+        },
+        {
+          "day": "周四",
+          "courses": [
+            {
+              "name": "Java基础",
+              "teacher": "陈老师",
+              "time": "08:00-09:40",
+              "location": "实训楼205"
+            },
+            {
+              "name": "软件工程",
+              "teacher": "褚老师",
+              "time": "10:00-11:40",
+              "location": "一教112"
+            },
+            {
+              "name": "大学物理",
+              "teacher": "卫老师",
+              "time": "13:30-15:10",
+              "location": "实验楼103"
+            }
+          ]
+        },
+        {
+          "day": "周五",
+          "courses": [
+            {
+              "name": "英语听力",
+              "teacher": "蒋老师",
+              "time": "08:00-09:40",
+              "location": "语音楼106"
+            },
+            {
+              "name": "数字逻辑",
+              "teacher": "沈老师",
+              "time": "10:00-11:40",
+              "location": "实验楼207"
+            },
+            {
+              "name": "Web前端",
+              "teacher": "韩老师",
+              "time": "13:30-15:10",
+              "location": "实训楼108"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "class_name": "计算机一班",
+      "week": 2,
+      "schedule": [
+        {
+          "day": "周一",
+          "courses": [
+            {
+              "name": "数据结构",
+              "teacher": "张老师",
+              "time": "08:00-09:40",
+              "location": "一教101"
+            },
+            {
+              "name": "英语",
+              "teacher": "李老师",
+              "time": "10:00-11:40",
+              "location": "二教203"
+            },
+            {
+              "name": "高等数学",
+              "teacher": "王老师",
+              "time": "13:30-15:10",
+              "location": "三教305"
+            }
+          ]
+        },
+        {
+          "day": "周二",
+          "courses": [
+            {
+              "name": "计算机网络",
+              "teacher": "刘老师",
+              "time": "08:00-09:40",
+              "location": "一教108"
+            },
+            {
+              "name": "Python编程",
+              "teacher": "赵老师",
+              "time": "10:00-11:40",
+              "location": "实训楼202"
+            },
+            {
+              "name": "操作系统",
+              "teacher": "周老师",
+              "time": "13:30-15:10",
+              "location": "三教310"
+            }
+          ]
+        },
+        {
+          "day": "周三",
+          "courses": [
+            {
+              "name": "线性代数",
+              "teacher": "吴老师",
+              "time": "08:00-09:40",
+              "location": "二教208"
+            },
+            {
+              "name": "数据库原理",
+              "teacher": "郑老师",
+              "time": "10:00-11:40",
+              "location": "实训楼301"
+            },
+            {
+              "name": "马克思主义原理",
+              "teacher": "冯老师",
+              "time": "13:30-15:10",
+              "location": "四教402"
+            }
+          ]
+        },
+        {
+          "day": "周四",
+          "courses": [
+            {
+              "name": "Java基础",
+              "teacher": "陈老师",
+              "time": "08:00-09:40",
+              "location": "实训楼205"
+            },
+            {
+              "name": "软件工程",
+              "teacher": "褚老师",
+              "time": "10:00-11:40",
+              "location": "一教112"
+            },
+            {
+              "name": "大学物理",
+              "teacher": "卫老师",
+              "time": "13:30-15:10",
+              "location": "实验楼103"
+            }
+          ]
+        },
+        {
+          "day": "周五",
+          "courses": [
+            {
+              "name": "英语听力",
+              "teacher": "蒋老师",
+              "time": "08:00-09:40",
+              "location": "语音楼106"
+            },
+            {
+              "name": "数字逻辑",
+              "teacher": "沈老师",
+              "time": "10:00-11:40",
+              "location": "实验楼207"
+            },
+            {
+              "name": "Web前端",
+              "teacher": "韩老师",
+              "time": "13:30-15:10",
+              "location": "实训楼108"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "class_name": "计算机一班",
+      "week": 3,
+      "schedule": [
+        {
+          "day": "周一",
+          "courses": [
+            {
+              "name": "数据结构",
+              "teacher": "张老师",
+              "time": "08:00-09:40",
+              "location": "一教101"
+            },
+            {
+              "name": "英语",
+              "teacher": "李老师",
+              "time": "10:00-11:40",
+              "location": "二教203"
+            },
+            {
+              "name": "高等数学",
+              "teacher": "王老师",
+              "time": "13:30-15:10",
+              "location": "三教305"
+            }
+          ]
+        },
+        {
+          "day": "周二",
+          "courses": [
+            {
+              "name": "计算机网络",
+              "teacher": "刘老师",
+              "time": "08:00-09:40",
+              "location": "一教108"
+            },
+            {
+              "name": "Python编程",
+              "teacher": "赵老师",
+              "time": "10:00-11:40",
+              "location": "实训楼202"
+            },
+            {
+              "name": "操作系统",
+              "teacher": "周老师",
+              "time": "13:30-15:10",
+              "location": "三教310"
+            }
+          ]
+        },
+        {
+          "day": "周三",
+          "courses": [
+            {
+              "name": "线性代数",
+              "teacher": "吴老师",
+              "time": "08:00-09:40",
+              "location": "二教208"
+            },
+            {
+              "name": "数据库原理",
+              "teacher": "郑老师",
+              "time": "10:00-11:40",
+              "location": "实训楼301"
+            },
+            {
+              "name": "马克思主义原理",
+              "teacher": "冯老师",
+              "time": "13:30-15:10",
+              "location": "四教402"
+            }
+          ]
+        },
+        {
+          "day": "周四",
+          "courses": [
+            {
+              "name": "Java基础",
+              "teacher": "陈老师",
+              "time": "08:00-09:40",
+              "location": "实训楼205"
+            },
+            {
+              "name": "软件工程",
+              "teacher": "褚老师",
+              "time": "10:00-11:40",
+              "location": "一教112"
+            },
+            {
+              "name": "大学物理",
+              "teacher": "卫老师",
+              "time": "13:30-15:10",
+              "location": "实验楼103"
+            }
+          ]
+        },
+        {
+          "day": "周五",
+          "courses": [
+            {
+              "name": "英语听力",
+              "teacher": "蒋老师",
+              "time": "08:00-09:40",
+              "location": "语音楼106"
+            },
+            {
+              "name": "数字逻辑",
+              "teacher": "沈老师",
+              "time": "10:00-11:40",
+              "location": "实验楼207"
+            },
+            {
+              "name": "Web前端",
+              "teacher": "韩老师",
+              "time": "13:30-15:10",
+              "location": "实训楼108"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "class_name": "计算机一班",
+      "week": 4,
+      "schedule": [
+        {
+          "day": "周一",
+          "courses": [
+            {
+              "name": "数据结构",
+              "teacher": "张老师",
+              "time": "08:00-09:40",
+              "location": "一教101"
+            },
+            {
+              "name": "英语",
+              "teacher": "李老师",
+              "time": "10:00-11:40",
+              "location": "二教203"
+            },
+            {
+              "name": "高等数学",
+              "teacher": "王老师",
+              "time": "13:30-15:10",
+              "location": "三教305"
+            }
+          ]
+        },
+        {
+          "day": "周二",
+          "courses": [
+            {
+              "name": "计算机网络",
+              "teacher": "刘老师",
+              "time": "08:00-09:40",
+              "location": "一教108"
+            },
+            {
+              "name": "Python编程",
+              "teacher": "赵老师",
+              "time": "10:00-11:40",
+              "location": "实训楼202"
+            },
+            {
+              "name": "操作系统",
+              "teacher": "周老师",
+              "time": "13:30-15:10",
+              "location": "三教310"
+            }
+          ]
+        },
+        {
+          "day": "周三",
+          "courses": [
+            {
+              "name": "线性代数",
+              "teacher": "吴老师",
+              "time": "08:00-09:40",
+              "location": "二教208"
+            },
+            {
+              "name": "数据库原理",
+              "teacher": "郑老师",
+              "time": "10:00-11:40",
+              "location": "实训楼301"
+            },
+            {
+              "name": "马克思主义原理",
+              "teacher": "冯老师",
+              "time": "13:30-15:10",
+              "location": "四教402"
+            }
+          ]
+        },
+        {
+          "day": "周四",
+          "courses": [
+            {
+              "name": "Java基础",
+              "teacher": "陈老师",
+              "time": "08:00-09:40",
+              "location": "实训楼205"
+            },
+            {
+              "name": "软件工程",
+              "teacher": "褚老师",
+              "time": "10:00-11:40",
+              "location": "一教112"
+            },
+            {
+              "name": "大学物理",
+              "teacher": "卫老师",
+              "time": "13:30-15:10",
+              "location": "实验楼103"
+            }
+          ]
+        },
+        {
+          "day": "周五",
+          "courses": [
+            {
+              "name": "英语听力",
+              "teacher": "蒋老师",
+              "time": "08:00-09:40",
+              "location": "语音楼106"
+            },
+            {
+              "name": "数字逻辑",
+              "teacher": "沈老师",
+              "time": "10:00-11:40",
+              "location": "实验楼207"
+            },
+            {
+              "name": "Web前端",
+              "teacher": "韩老师",
+              "time": "13:30-15:10",
+              "location": "实训楼108"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "class_name": "计算机一班",
+      "week": 5,
+      "schedule": [
+        {
+          "day": "周一",
+          "courses": [
+            {
+              "name": "数据结构",
+              "teacher": "张老师",
+              "time": "08:00-09:40",
+              "location": "一教101"
+            },
+            {
+              "name": "英语",
+              "teacher": "李老师",
+              "time": "10:00-11:40",
+              "location": "二教203"
+            },
+            {
+              "name": "高等数学",
+              "teacher": "王老师",
+              "time": "13:30-15:10",
+              "location": "三教305"
+            }
+          ]
+        },
+        {
+          "day": "周二",
+          "courses": [
+            {
+              "name": "计算机网络",
+              "teacher": "刘老师",
+              "time": "08:00-09:40",
+              "location": "一教108"
+            },
+            {
+              "name": "Python编程",
+              "teacher": "赵老师",
+              "time": "10:00-11:40",
+              "location": "实训楼202"
+            },
+            {
+              "name": "操作系统",
+              "teacher": "周老师",
+              "time": "13:30-15:10",
+              "location": "三教310"
+            }
+          ]
+        },
+        {
+          "day": "周三",
+          "courses": [
+            {
+              "name": "线性代数",
+              "teacher": "吴老师",
+              "time": "08:00-09:40",
+              "location": "二教208"
+            },
+            {
+              "name": "数据库原理",
+              "teacher": "郑老师",
+              "time": "10:00-11:40",
+              "location": "实训楼301"
+            },
+            {
+              "name": "马克思主义原理",
+              "teacher": "冯老师",
+              "time": "13:30-15:10",
+              "location": "四教402"
+            }
+          ]
+        },
+        {
+          "day": "周四",
+          "courses": [
+            {
+              "name": "Java基础",
+              "teacher": "陈老师",
+              "time": "08:00-09:40",
+              "location": "实训楼205"
+            },
+            {
+              "name": "软件工程",
+              "teacher": "褚老师",
+              "time": "10:00-11:40",
+              "location": "一教112"
+            },
+            {
+              "name": "大学物理",
+              "teacher": "卫老师",
+              "time": "13:30-15:10",
+              "location": "实验楼103"
+            }
+          ]
+        },
+        {
+          "day": "周五",
+          "courses": [
+            {
+              "name": "英语听力",
+              "teacher": "蒋老师",
+              "time": "08:00-09:40",
+              "location": "语音楼106"
+            },
+            {
+              "name": "数字逻辑",
+              "teacher": "沈老师",
+              "time": "10:00-11:40",
+              "location": "实验楼207"
+            },
+            {
+              "name": "Web前端",
+              "teacher": "韩老师",
+              "time": "13:30-15:10",
+              "location": "实训楼108"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

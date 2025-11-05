@@ -72,7 +72,6 @@
           <van-empty v-if="isMessageListEmpty" description="暂无班级讯息" class="empty-message" />
         </div>
       </section>
-
       <!-- 快捷入口 -->
       <section class="quick-function-panel">
         <div class="function-grid">
@@ -86,93 +85,6 @@
             <span class="function-item-text">{{ item.text }}</span>
           </div>
         </div>
-
-        <!-- <van-grid :border="false" column-num="4" class="function-grid">
-          <van-grid-item
-            v-for="item in functionList"
-            :key="item.id"
-            :icon="item.icon"
-            :text="item.text"
-            @click="handleItemClick(item)"
-            class="function-item"
-          />
-        </van-grid>
-        -->
-      </section>
-      <section class="quick-function-panel">
-        <div class="function-grid">
-          <div
-            class="function-item"
-            v-for="item in functionList"
-            :key="item.id"
-            @click="handleItemClick(item)"
-          >
-            <img :src="item.icon" />
-            <span class="function-item-text">{{ item.text }}</span>
-          </div>
-        </div>
-
-        <!-- <van-grid :border="false" column-num="4" class="function-grid">
-          <van-grid-item
-            v-for="item in functionList"
-            :key="item.id"
-            :icon="item.icon"
-            :text="item.text"
-            @click="handleItemClick(item)"
-            class="function-item"
-          />
-        </van-grid>
-        -->
-      </section>
-      <section class="quick-function-panel">
-        <div class="function-grid">
-          <div
-            class="function-item"
-            v-for="item in functionList"
-            :key="item.id"
-            @click="handleItemClick(item)"
-          >
-            <img :src="item.icon" />
-            <span class="function-item-text">{{ item.text }}</span>
-          </div>
-        </div>
-
-        <!-- <van-grid :border="false" column-num="4" class="function-grid">
-          <van-grid-item
-            v-for="item in functionList"
-            :key="item.id"
-            :icon="item.icon"
-            :text="item.text"
-            @click="handleItemClick(item)"
-            class="function-item"
-          />
-        </van-grid>
-        -->
-      </section>
-      <section class="quick-function-panel">
-        <div class="function-grid">
-          <div
-            class="function-item"
-            v-for="item in functionList"
-            :key="item.id"
-            @click="handleItemClick(item)"
-          >
-            <img :src="item.icon" />
-            <span class="function-item-text">{{ item.text }}</span>
-          </div>
-        </div>
-
-        <!-- <van-grid :border="false" column-num="4" class="function-grid">
-          <van-grid-item
-            v-for="item in functionList"
-            :key="item.id"
-            :icon="item.icon"
-            :text="item.text"
-            @click="handleItemClick(item)"
-            class="function-item"
-          />
-        </van-grid>
-        -->
       </section>
 
       <!-- 今日课程 -->
@@ -540,8 +452,8 @@ const handleMessageClick = (message: ClassMessage) => {
               .address {
                 color: white;
               }
-              .time {
-              }
+              // .time {
+              // }
             }
           }
         }

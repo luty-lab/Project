@@ -28,9 +28,8 @@ withDefaults(
 </script>
 
 <style scoped lang="scss">
-@use '@/assets/color.scss';
+@use '@/assets/color.scss' as *;
 // $primary: #000;
-$primary: #000;
 @mixin flexCenter {
   display: flex;
   justify-content: center;
