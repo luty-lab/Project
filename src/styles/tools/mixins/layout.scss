@@ -1,0 +1,53 @@
+@use '../../config/index.scss' as *;
+
+// flex start
+@mixin flexStart($dir: column) {
+  display: flex;
+  flex-direction: $dir;
+  align-items: center;
+  justify-content: flex-start;
+}
+/*  flex 居中套装 */
+@mixin flexCenter($dir: row) {
+  display: flex;
+  flex-direction: $dir;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 左右分栏，间距可配 */
+@mixin flexBetween($gap: $space16) {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: $gap;
+}
+
+/* 卡片外壳 = 圆角 + 阴影 + 内边距 */
+@mixin cardShell {
+  padding: $space16;
+  border-radius: $radius8;
+  background: $gray0;
+  box-shadow: $shadow2;
+}
+
+/* 快速内边距 */
+@mixin padding($t: $space16, $r: $t, $b: $t, $l: $r) {
+  padding: $t $r $b $l;
+}
+/* 用法：@include padding($space8, $space12); */
+
+/* 单行文字溢出 */
+@mixin textTruncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* 多行溢出 */
+@mixin textClamp($lines: 2) {
+  display: -webkit-box;
+  -webkit-line-clamp: $lines;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}

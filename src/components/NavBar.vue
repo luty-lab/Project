@@ -22,46 +22,35 @@ withDefaults(
     title?: string
   }>(),
   {
-    title: 'defaultTitle',
+    title: ' ',
   },
 )
 </script>
 
 <style scoped lang="scss">
-@use '@/assets/color.scss' as *;
-// $primary: #000;
-@mixin flexCenter {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+@use '@/styles/index.scss' as *;
 .navBar {
+  height: $navBar-height;
   background: $primary;
-  height: 3rem;
   .content {
     @include flexCenter();
     justify-content: space-between;
-    gap: 1rem;
     width: 100%;
-
-    padding: 0.5rem 0rem;
-    color: rgb(0, 0, 0);
-    * {
-      @include flexCenter();
-      font-size: 1.3rem;
-      font-weight: bold;
-      color: #fff;
-    }
+    font-size: $font20;
+    padding: $space8;
+    font-weight: bold;
+    color: $gray0;
     .left {
-      margin-left: 2rem;
+      @include flexStart();
       justify-content: start;
       width: 25%;
     }
     .title {
+      @include flexCenter();
       flex: 1;
     }
     .right {
-      margin-right: 2rem;
+      @include flexStart();
       justify-content: end;
       width: 25%;
     }

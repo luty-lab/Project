@@ -29,8 +29,9 @@ import TabHolder from '@/components/TabHolder.vue'
 </script>
 
 <style scoped lang="scss">
-@use '@/assets/color.scss' as *;
+@use '@/styles/index.scss' as *;
 .MoreModule {
+  font-size: $font14;
   height: 100%;
   overflow: hidden;
   display: flex;

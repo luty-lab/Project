@@ -11,14 +11,17 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    AdjustMessage: typeof import('./src/components/tools/adjustMessage.vue')['default']
     BackBar: typeof import('./src/components/BackBar.vue')['default']
     GridList: typeof import('./src/components/GridList.vue')['default']
     NavBar: typeof import('./src/components/NavBar.vue')['default']
+    NormalMessage: typeof import('./src/components/tools/normalMessage.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     TabBar: typeof import('./src/components/TabBar.vue')['default']
     TabBarT: typeof import('./src/components/TabBarT.vue')['default']
     TabHolder: typeof import('./src/components/TabHolder.vue')['default']
+    Test: typeof import('./src/components/test.vue')['default']
     VanBadge: typeof import('vant/es')['Badge']
     VanButton: typeof import('vant/es')['Button']
     VanCalendar: typeof import('vant/es')['Calendar']
@@ -26,6 +29,7 @@ declare module 'vue' {
     VanGridItem: typeof import('vant/es')['GridItem']
     VanIcon: typeof import('vant/es')['Icon']
     VanNavBar: typeof import('vant/es')['NavBar']
+    VanPopup: typeof import('vant/es')['Popup']
     VanSearch: typeof import('vant/es')['Search']
   }
 }

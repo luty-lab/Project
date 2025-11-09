@@ -1,6 +1,6 @@
 <template>
   <div class="app">
-    <NavBar :title="activeTitle" />
+    <NavBar />
     <RouterView />
     <!-- <TabBar ref="tabBar" /> -->
     <TabBarT ref="tabBarT" />
@@ -31,8 +31,5 @@ changeTitle('首页')
 .app {
   width: 100%;
   height: 100%;
-  background: #000;
-  /* overflow: hidden; */
-  border-radius: 1rem;
 }
 </style>

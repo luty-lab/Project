@@ -1,0 +1,13 @@
+/* base/scrollbar.scss */
+@use '../config/index.scss' as *;
+::-webkit-scrollbar {
+  width: 0.06rem;
+  height: 0.06rem;
+}
+::-webkit-scrollbar-thumb {
+  background: $gray400;
+  border-radius: 0.03rem;
+}
+::-webkit-scrollbar-track {
+  background: $gray100;
+}

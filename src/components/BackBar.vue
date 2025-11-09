@@ -34,7 +34,6 @@ const handleBack = () => {
 </script>
 
 <style scoped lang="scss">
-@use '@/assets/color.scss' as m;
 $primary: #000;
 
 @mixin flexCenter {

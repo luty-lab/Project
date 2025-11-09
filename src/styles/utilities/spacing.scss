@@ -1,0 +1,20 @@
+/* utilities/spacing.scss */
+@use '../config/index.scss' as *;
+.u-m-4 {
+  margin: $space4;
+}
+.u-m-8 {
+  margin: $space8;
+}
+.u-m-12 {
+  margin: $space12;
+}
+.u-p-4 {
+  padding: $space4;
+}
+.u-p-8 {
+  padding: $space8;
+}
+.u-p-12 {
+  padding: $space12;
+}

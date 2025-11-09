@@ -1,0 +1,16 @@
+/* base/reset.scss */
+@use '../config/index.scss' as *;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html {
+  font-size: 100px;
+} /* 1rem = 100px */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+  line-height: 1.5;
+  color: $gray700;
+  background: $gray0;
+}

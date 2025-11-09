@@ -5,8 +5,9 @@
 </template>
 <script setup lang="ts"></script>
 <style scoped lang="scss">
-@use '@/assets/color.scss' as *;
+@use '@/styles/index.scss' as *;
+
 .content {
-  height: $h-tabBar;
+  height: $tabBar-height;
 }
 </style>

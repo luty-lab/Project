@@ -1,0 +1,9 @@
+@use '@/styles/config/index.scss' as *;
+$navBar-height: 0.4rem;
+$navBar-color: #fff;
+
+$tabBar-height: 0.5rem;
+$tabBar-bg: hsl(0, 0%, 100%);
+$tabBar-item-bg: transparent;
+$tabBar-bg-active: $primary;
+$tabBar-color: hsl(0, 0%, 100%);

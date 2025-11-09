@@ -27,7 +27,7 @@ const list: ClassMessage[] = [
     id: '2',
     title: '新学期课程表发布',
     createTime: '2025-10-28 14:15:00',
-    isRead: true,
+    isRead: false,
   },
   {
     id: '3',
@@ -39,7 +39,7 @@ const list: ClassMessage[] = [
     id: '4',
     title: '图书馆开放时间调整通知',
     createTime: '2025-10-20 11:45:00',
-    isRead: true,
+    isRead: false,
   },
 ]
 export const useClassMessageList = defineStore('classMessageList', () => {

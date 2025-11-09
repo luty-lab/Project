@@ -1,0 +1,11 @@
+/* utilities/flex.scss */
+@use '../tools/index.scss' as *;
+.u-flex {
+  @include flexCenter;
+}
+.u-flex-center {
+  @include flexCenter;
+}
+.u-flex-between {
+  @include flexBetween;
+}
